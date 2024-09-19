@@ -1,0 +1,3 @@
+include:
+  - compose-main.yaml
+  - compose-monitor.yaml

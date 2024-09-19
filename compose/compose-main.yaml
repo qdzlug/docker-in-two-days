@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    command: python3 app.py
+    develop:
+      watch:
+        - action: rebuild
+          path: requirements.txt
+        - action: sync+restart
+          path: .
+          target: /app
+    depends_on:
+      - db
+    profiles: ["dev", "prod"]
+
+  # Database
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpassword
+      - POSTGRES_DB=mydatabase
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+    profiles: ["dev", "prod"]
+
+volumes:
+  db_data:
