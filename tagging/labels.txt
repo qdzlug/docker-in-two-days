@@ -1,0 +1,5 @@
+title="InitWorkshop"
+description="Part of the workshop course"
+authors=Jane Doe <jane@example.com>
+url=http://custom.example.com
+version=2.1.0
