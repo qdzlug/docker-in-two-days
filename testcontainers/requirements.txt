@@ -1,0 +1,5 @@
+SQLAlchemy~=2.0.31
+testcontainers~=4.7.2
+requests~=2.32.3
+docker~=7.1.0
+testcontainers-minio
