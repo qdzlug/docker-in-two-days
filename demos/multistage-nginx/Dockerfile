@@ -70,9 +70,9 @@ ARG ENABLED_MODULES
 RUN apk update \
     && apk add linux-headers openssl-dev pcre2-dev zlib-dev openssl abuild \
                musl-dev libxslt libxml2-utils make mercurial gcc unzip git \
-               xz g++ coreutils curl \
+               xz g++ coreutils curl 
     # allow abuild as a root user \
-    && printf "#!/bin/sh\\nSETFATTR=true /usr/bin/abuild -F \"\$@\"\\n" > /usr/local/bin/abuild \
+RUN printf "#!/bin/sh\\nSETFATTR=true /usr/bin/abuild -F \"\$@\"\\n" > /usr/local/bin/abuild \
     && chmod +x /usr/local/bin/abuild \
     && git clone -b ${NGINX_VERSION}-${PKG_RELEASE} https://github.com/nginx/pkg-oss/ \
     && cd pkg-oss \

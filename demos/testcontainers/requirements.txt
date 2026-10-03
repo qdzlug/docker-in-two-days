@@ -3,3 +3,4 @@ testcontainers~=4.7.2
 requests~=2.32.3
 docker~=7.1.0
 testcontainers-minio
+testcontainers-postgres
